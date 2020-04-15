@@ -7,6 +7,7 @@ public class Test {
     }
 }
 
+// 碰到符合特殊要求的，向后看一位
 class Solution {
     public int romanToInt(String s) {
         char c; // 当前遍历到的字符
