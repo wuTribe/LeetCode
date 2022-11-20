@@ -14,6 +14,11 @@ import java.util.Arrays;
  * Created by wuyufan on 2022/10/31.
  */
 public class ScatteringAndGatheringTest {
+    // 聚合了多个选择器，可以同事并发处理多个客户端连接
+    // 有一个事件循环的线程，线程通常将非阻塞IO的空闲事件用于在其他通道上进行IO操作
+    // 读写操作非阻塞
+
+
     // 一个 buffer 不够用可以用两个
     @Test
     public void scatteringAndGathering() throws IOException {
