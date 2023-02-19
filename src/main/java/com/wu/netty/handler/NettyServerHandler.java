@@ -49,6 +49,7 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
             }
             ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端3", StandardCharsets.UTF_8));
         });
+        // 定时执行
         ctx.channel().eventLoop().schedule(() -> {
             try {
                 TimeUnit.SECONDS.sleep(20);
