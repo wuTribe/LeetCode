@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.c1;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,7 +6,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-import static com.heima.ByteBufferUtil.debugAll;
+import static com.heima.c1.ByteBufferUtil.debugAll;
 
 /**
  * Created by wuyufan on 2023/8/11.

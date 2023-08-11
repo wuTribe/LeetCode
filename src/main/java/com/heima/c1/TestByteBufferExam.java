@@ -1,8 +1,8 @@
-package com.heima;
+package com.heima.c1;
 
 import java.nio.ByteBuffer;
 
-import static com.heima.ByteBufferUtil.debugAll;
+import static com.heima.c1.ByteBufferUtil.debugAll;
 
 /**
  * Created by wuyufan on 2023/8/11.

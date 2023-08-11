@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.c1;
 
 import lombok.extern.slf4j.Slf4j;
 

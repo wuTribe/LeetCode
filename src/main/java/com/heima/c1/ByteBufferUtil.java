@@ -1,4 +1,4 @@
-package com.heima;
+package com.heima.c1;
 
 /**
  * Created by wuyufan on 2023/8/11.
