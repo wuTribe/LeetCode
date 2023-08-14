@@ -26,3 +26,8 @@ asd_
 BasketballManager.iml
 */build/*
 /build/*
+
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea
