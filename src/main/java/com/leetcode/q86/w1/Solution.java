@@ -1,6 +1,7 @@
 package com.leetcode.q86.w1;
 
-import com.wu.q86.base.ListNode;
+
+import com.leetcode.q86.base.ListNode;
 
 public class Solution {
     public ListNode partition(ListNode head, int x) {

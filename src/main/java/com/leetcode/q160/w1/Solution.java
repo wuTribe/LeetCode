@@ -1,6 +1,7 @@
 package com.leetcode.q160.w1;
 
-import com.wu.q160.base.ListNode;
+
+import com.leetcode.q160.base.ListNode;
 
 import java.util.HashSet;
 

@@ -1,6 +1,7 @@
 package com.leetcode.q21.w1;
 
-import com.wu.q21.base.ListNode;
+
+import com.leetcode.q21.base.ListNode;
 
 public class Solution {
     public static void main(String[] args) {

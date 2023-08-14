@@ -1,6 +1,7 @@
 package com.leetcode.q160.w2;
 
-import com.wu.q160.base.ListNode;
+
+import com.leetcode.q160.base.ListNode;
 
 public class Solution {
     /*  走对方的路 */

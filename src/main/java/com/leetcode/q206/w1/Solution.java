@@ -1,7 +1,7 @@
 package com.leetcode.q206.w1;
 
 
-import com.wu.q206.base.ListNode;
+import com.leetcode.q206.base.ListNode;
 
 class Solution {
 
