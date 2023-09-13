@@ -20,6 +20,9 @@ public class MultiThreadServer {
         SelectionKey bossKey = ssc.register(boss, 0, null);
         bossKey.interestOps(SelectionKey.OP_ACCEPT);
         ssc.bind(new InetSocketAddress(8888));
+        // 1. 创建固定数量 worker 并初始化
+        Worker worker = new Worker("worker-0");
+        worker.register();
 
         while (true) {
             boss.select();
@@ -30,6 +33,11 @@ public class MultiThreadServer {
                 if (key.isAcceptable()) {
                     SocketChannel sc = ssc.accept();
                     sc.configureBlocking(false);
+                    log.debug("connected...{}", sc.getRemoteAddress());
+                    // 2. 关联 selector
+                    log.debug("before register...{}", sc.getRemoteAddress());
+                    sc.register(worker.selector, SelectionKey.OP_READ, null);
+                    log.debug("after register...{}", sc.getRemoteAddress());
                 }
             }
         }
@@ -37,15 +45,15 @@ public class MultiThreadServer {
 
 
     @Slf4j
-    static class Work implements Runnable {
+    static class Worker implements Runnable {
 
         private Thread thread;
-        private Selector worker;
+        private Selector selector;
         private String name;
 
         private volatile boolean start;
 
-        public Work(String name) {
+        public Worker(String name) {
             this.name = name;
         }
 
@@ -53,9 +61,9 @@ public class MultiThreadServer {
         public void register() throws IOException {
             if (!start) {
                 this.thread = new Thread(this, name);
-                this.thread.start();
-                this.worker = Selector.open();
+                this.selector = Selector.open();
                 this.start = true;
+                this.thread.start();
             }
         }
 
@@ -64,14 +72,15 @@ public class MultiThreadServer {
         public void run() {
              while (true) {
                  try {
-                     this.worker.select();
-                     Iterator<SelectionKey> iterator = worker.selectedKeys().iterator();
+                     this.selector.select();
+                     Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
                      while (iterator.hasNext()) {
                          SelectionKey key = iterator.next();
                          iterator.remove();
                          if (key.isReadable()) {
                              ByteBuffer buffer = ByteBuffer.allocate(16);
                              SocketChannel channel = (SocketChannel) key.channel();
+                             log.debug("read ...{}", channel.getRemoteAddress());
                              channel.read(buffer);
                              buffer.flip();
                              debugAll(buffer);
