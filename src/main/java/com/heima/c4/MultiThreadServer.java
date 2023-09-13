@@ -26,9 +26,14 @@ public class MultiThreadServer {
         SelectionKey bossKey = ssc.register(boss, 0, null);
         bossKey.interestOps(SelectionKey.OP_ACCEPT);
         ssc.bind(new InetSocketAddress(8888));
-        // 1. 创建固定数量 worker 并初始化
-        Worker worker = new Worker("worker-0");
+        // 创建多个 worker，负载均衡调用（轮训）
+        // 当前机器可用的核心数，但是如果这里使用 docker 部署，在 JDK10 以下，得到的都是物理机的CPU核心数
+        Worker[] workers = new Worker[Runtime.getRuntime().availableProcessors()];
+        for (int i = 0; i < workers.length; i++) {
+            workers[i] = new Worker("worker-" + i);
+        }
 
+        int wIndex = 0;
         while (true) {
             boss.select();
             Iterator<SelectionKey> iterator = boss.selectedKeys().iterator();
@@ -43,7 +48,7 @@ public class MultiThreadServer {
                     log.debug("before register...{}", sc.getRemoteAddress());
                     // 原先先启动 selector 线程，由于没有注册 channel，select 方法阻塞，影响 boss 线程 register，导致失败
                     // 解决办法1：先注册再 select
-                    worker.register(sc);
+                    workers[wIndex++ % workers.length].register(sc);
                     log.debug("after register...{}", sc.getRemoteAddress());
                 }
             }
@@ -104,13 +109,12 @@ public class MultiThreadServer {
                              ByteBuffer buffer = ByteBuffer.allocate(16);
                              SocketChannel channel = (SocketChannel) key.channel();
                              log.debug("read ...{}", channel.getRemoteAddress());
-                             int read = channel.read(buffer);
-                             buffer.flip();
-                             debugAll(buffer);
-                             if (read == -1) { // 如果是正常断开，返回值为 -1
+                             if (channel.read(buffer) == -1) { // 如果是正常断开，返回值为 -1
                                  key.cancel();
                                  continue;
                              }
+                             buffer.flip();
+                             debugAll(buffer);
                          }
                      }
                  } catch (IOException e) {
