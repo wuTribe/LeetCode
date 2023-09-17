@@ -1,4 +1,4 @@
-package com.heima.c4;
+package com.heima.nio.c4;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -10,7 +10,7 @@ import java.nio.channels.SocketChannel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.heima.c1.ByteBufferUtil.debugRead;
+import static com.heima.nio.c1.ByteBufferUtil.debugRead;
 
 /**
  * Created by wuyufan on 2023/8/11.

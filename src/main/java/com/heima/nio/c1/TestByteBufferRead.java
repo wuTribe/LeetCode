@@ -1,10 +1,10 @@
-package com.heima.c1;
+package com.heima.nio.c1;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.ByteBuffer;
 
-import static com.heima.c1.ByteBufferUtil.debugAll;
+import static com.heima.nio.c1.ByteBufferUtil.debugAll;
 
 /**
  * Created by wuyufan on 2023/8/11.

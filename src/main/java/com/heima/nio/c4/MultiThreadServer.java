@@ -1,5 +1,6 @@
-package com.heima.c4;
+package com.heima.nio.c4;
 
+import com.heima.nio.c1.ByteBufferUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -8,8 +9,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
-
-import static com.heima.c1.ByteBufferUtil.debugAll;
 
 /**
  * boss 线程与 worker 线程：
@@ -114,7 +113,7 @@ public class MultiThreadServer {
                                  continue;
                              }
                              buffer.flip();
-                             debugAll(buffer);
+                             ByteBufferUtil.debugAll(buffer);
                          }
                      }
                  } catch (IOException e) {

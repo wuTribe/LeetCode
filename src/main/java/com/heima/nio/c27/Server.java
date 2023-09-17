@@ -1,5 +1,6 @@
-package com.heima.c27;
+package com.heima.nio.c27;
 
+import com.heima.nio.c1.ByteBufferUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -7,9 +8,6 @@ import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.util.Iterator;
-
-import static com.heima.c1.ByteBufferUtil.debugAll;
-import static com.heima.c1.ByteBufferUtil.debugRead;
 
 /**
  * selector 处理 accept
@@ -113,7 +111,7 @@ public class Server {
                 for (int j = 0; j < capacity; j++) { // 从 source 向 target 写
                     target.put(source.get());
                 }
-                debugAll(target);
+                ByteBufferUtil.debugAll(target);
             }
         }
         source.compact();

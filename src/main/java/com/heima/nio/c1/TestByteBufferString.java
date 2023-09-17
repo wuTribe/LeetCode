@@ -1,11 +1,9 @@
-package com.heima.c1;
+package com.heima.nio.c1;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-
-import static com.heima.c1.ByteBufferUtil.debugAll;
 
 /**
  * Created by wuyufan on 2023/8/11.
@@ -17,15 +15,15 @@ public class TestByteBufferString {
         ByteBuffer buffer = ByteBuffer.allocate(16);
         String s = "hello";
         buffer.put(s.getBytes());
-        debugAll(buffer);
+        ByteBufferUtil.debugAll(buffer);
 
         // 2. Charset
         ByteBuffer buffer2 = StandardCharsets.UTF_8.encode(s); // 生成的 buffer，自动切换为读模式
-        debugAll(buffer2);
+        ByteBufferUtil.debugAll(buffer2);
 
         // 3. wrap
         ByteBuffer buffer3 = ByteBuffer.wrap(s.getBytes());
-        debugAll(buffer3);
+        ByteBufferUtil.debugAll(buffer3);
 
 
         // 4. 转字符串

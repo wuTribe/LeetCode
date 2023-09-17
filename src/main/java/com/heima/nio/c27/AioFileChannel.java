@@ -1,4 +1,4 @@
-package com.heima.c27;
+package com.heima.nio.c27;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -9,7 +9,7 @@ import java.nio.channels.CompletionHandler;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-import static com.heima.c1.ByteBufferUtil.debugAll;
+import static com.heima.nio.c1.ByteBufferUtil.debugAll;
 
 /**
  * 卡 bug

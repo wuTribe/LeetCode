@@ -1,12 +1,10 @@
-package com.heima.c1;
+package com.heima.nio.c1;
 
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-
-import static com.heima.c1.ByteBufferUtil.debugAll;
 
 /**
  * Created by wuyufan on 2023/8/11.
@@ -22,9 +20,9 @@ public class TestScatteringReads {
             b1.flip();
             b2.flip();
             b3.flip();
-            debugAll(b1);
-            debugAll(b2);
-            debugAll(b3);
+            ByteBufferUtil.debugAll(b1);
+            ByteBufferUtil.debugAll(b2);
+            ByteBufferUtil.debugAll(b3);
         } catch (Exception e) {
             log.error("", e);
         }
