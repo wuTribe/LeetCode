@@ -1,4 +1,4 @@
-package com.heima.netty.c1;
+package com.heima.netty.c2;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelHandlerContext;
