@@ -1,4 +1,4 @@
-package com.swordpointing2offer.lcr024;
+package com.swordpointing2offer.lcr140;
 
 
 import lombok.Getter;
@@ -23,3 +23,4 @@ class ListNode {
         this.next = next;
     }
 }
+

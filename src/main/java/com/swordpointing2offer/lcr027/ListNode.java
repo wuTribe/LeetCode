@@ -7,7 +7,7 @@ import lombok.Setter;
 // Definition for singly-linked list.
 @Getter
 @Setter
-public class ListNode {
+class ListNode {
     int val;
     ListNode next;
 

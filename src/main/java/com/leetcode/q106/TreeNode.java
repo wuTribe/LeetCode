@@ -1,6 +1,6 @@
 package com.leetcode.q106;
 
-public class TreeNode {
+class TreeNode {
 
     int val;
     TreeNode left;

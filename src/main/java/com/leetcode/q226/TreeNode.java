@@ -1,4 +1,4 @@
-package com.swordpointing2offer.lcr056;
+package com.leetcode.q226;
 
 
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 // Definition for a binary tree node.
 @Getter
 @Setter
-class TreeNode {
+public class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
@@ -25,4 +25,5 @@ class TreeNode {
         this.right = right;
     }
 }
+
 
