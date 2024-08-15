@@ -1,4 +1,4 @@
-package com.leetcode.q226;
+package com.swordpointing2offer.lcr145;
 
 
 import lombok.Getter;
@@ -25,5 +25,4 @@ class TreeNode {
         this.right = right;
     }
 }
-
 
