@@ -1,4 +1,4 @@
-package com.swordpointing2offer.lcr174;
+package com.swordpointing2offer.lcr175;
 
 
 // Definition for a binary tree node.
@@ -6,8 +6,14 @@ class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
+
+    TreeNode() {
+    }
+
+    TreeNode(int val) {
+        this.val = val;
+    }
+
     TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
