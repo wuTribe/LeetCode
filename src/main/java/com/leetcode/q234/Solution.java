@@ -1,4 +1,4 @@
-package com.swordpointing2offer.lcr027;
+package com.leetcode.q234;
 
 import java.util.Stack;
 
@@ -17,11 +17,5 @@ public class Solution {
             head = head.next;
         }
         return stack.isEmpty();
-    }
-
-    public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        System.out.println(new Solution().isPalindrome(head));
     }
 }
